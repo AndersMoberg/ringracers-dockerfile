@@ -12,7 +12,7 @@ libgme-dev \
 libopenmpt-dev \
 libminiupnpc-dev \
 libogg-dev \
-libpng-dev \debian:bookworm
+libpng-dev \
 libsdl2-dev \
 libsdl2-mixer-dev \
 libvorbis-dev \
