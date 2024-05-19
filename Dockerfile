@@ -1,4 +1,4 @@
-FROM arm64v8/debian:bookworm as builder
+FROM debian:bookworm as builder
 
 # Ref: https://git.do.srb2.org/KartKrew/RingRacers
 
@@ -12,7 +12,7 @@ libgme-dev \
 libopenmpt-dev \
 libminiupnpc-dev \
 libogg-dev \
-libpng-dev \
+libpng-dev \debian:bookworm
 libsdl2-dev \
 libsdl2-mixer-dev \
 libvorbis-dev \
@@ -38,7 +38,7 @@ RUN cmake --build --preset ninja-release
 
 ###
 
-FROM arm64v8/debian:bookworm as assets
+FROM debian:bookworm as assets
 ARG RR_VER="v2.2"
 ARG ASSETS_URL="https://github.com/KartKrewDev/RingRacers/releases/download/${RR_VER}/Dr.Robotnik.s-Ring-Racers-${RR_VER}-Assets.zip"
 RUN apt-get update && apt-get upgrade -y
@@ -51,7 +51,7 @@ RUN rm Dr.Robotnik.s-Ring-Racers-${RR_VER}-Assets.zip
 
 ###
 
-FROM arm64v8/debian:bookworm as main
+FROM debian:bookworm as main
 
 RUN apt-get update && apt-get install -y \
     libyuv0 \
